@@ -1,0 +1,68 @@
+{
+  "name": "@linkedmink/eslint-config",
+  "version": "1.0.0-8",
+  "description": "A base ESLint configuration used by @linkedmink",
+  "keywords": [
+    "ESLint",
+    "Configuration",
+    "TypeScript"
+  ],
+  "homepage": "https://github.com/LinkedMink/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/LinkedMink/eslint-config/issues",
+    "email": "harlan.sang@linkedmink.net"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Harlan Sang",
+    "email": "harlan.sang@linkedmink.net",
+    "url": "https://github.com/LinkedMink"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/LinkedMink"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/esm/index.d.ts",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LinkedMink/eslint-config.git"
+  },
+  "scripts": {
+    "build": "tsc --project src/tsconfig.json && tsc --project src/tsconfig.cjs.json",
+    "postbuild": "node -e \"fs.writeFile('dist/cjs/package.json', '{ \"type\": \"commonjs\" }', () => {})\"",
+    "clean": "node -e \"fs.rm('dist', { force: true, recursive: true }, () => {})\"",
+    "lint": "eslint src/**/*.ts *.js",
+    "preversion": "npm run lint && npm run build",
+    "version": "git add .",
+    "postversion": "npm publish",
+    "version:prerelease": "npm --no-git-tag-version version prerelease",
+    "prepack": "npm run clean && npm run build",
+    "prepare": "husky || cd ."
+  },
+  "peerDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/eslint": "^9.6.0",
+    "@types/node": "^22.1.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  }
+}

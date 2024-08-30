@@ -1,0 +1,4 @@
+node_modules/
+/dist/
+linkedmink-eslint-config-*.tgz
+.DS_Store

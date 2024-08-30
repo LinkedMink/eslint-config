@@ -1,0 +1,11 @@
+/.github/
+/.husky/
+/.vscode/
+/src/tsconfig*.json
+
+/.git*
+/.lintstagedrc.js
+/.npm*
+/.prettier*
+/eslint.config.js
+/tsconfig.json
