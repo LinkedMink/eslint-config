@@ -13,6 +13,9 @@ const noUnusedVarsOptions: Linter.RuleEntry = [
 ];
 
 export const flatConfig: ConfigWithExtends[] = [
+  {
+    ignores: ["coverage/**", "dist/**"],
+  },
   eslint.configs.recommended,
   ...tsEslint.configs.strictTypeChecked,
   {

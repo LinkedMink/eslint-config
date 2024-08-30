@@ -40,7 +40,7 @@
   },
   "scripts": {
     "build": "tsc --project src/tsconfig.json && tsc --project src/tsconfig.cjs.json",
-    "postbuild": "node -e \"fs.writeFile('dist/cjs/package.json', '{ \"type\": \"commonjs\" }', () => {})\"",
+    "postbuild": "node -e \"fs.writeFile('dist/cjs/package.json', '{ \\\"type\\\": \\\"commonjs\\\" }', () => {})\"",
     "clean": "node -e \"fs.rm('dist', { force: true, recursive: true }, () => {})\"",
     "lint": "eslint src/**/*.ts *.js",
     "test:ci": "echo \"No unit test for configuration repo\"",
