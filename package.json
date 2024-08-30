@@ -43,7 +43,7 @@
     "postbuild": "node -e \"fs.writeFile('dist/cjs/package.json', '{ \"type\": \"commonjs\" }', () => {})\"",
     "clean": "node -e \"fs.rm('dist', { force: true, recursive: true }, () => {})\"",
     "lint": "eslint src/**/*.ts *.js",
-    "preversion": "npm run lint && npm run build",
+    "preversion": "npm run build && npm run lint",
     "version": "git add .",
     "postversion": "npm publish",
     "version:prerelease": "npm --no-git-tag-version version prerelease",
