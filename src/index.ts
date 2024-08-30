@@ -1,6 +1,6 @@
 import type { Linter } from "eslint";
 import eslint from "@eslint/js";
-import tsEslint, { ConfigWithExtends } from "typescript-eslint";
+import tsEslint, { ConfigWithExtends, Config } from "typescript-eslint";
 
 const noUnusedVarsOptions: Linter.RuleEntry = [
   "error",
@@ -71,3 +71,5 @@ export const flatConfig: ConfigWithExtends[] = [
     },
   },
 ];
+
+export const eslintConfig: Config = tsEslint.config(...flatConfig);
