@@ -38,7 +38,7 @@ export const flatConfig: ConfigWithExtends[] = [
     files: ["**/*.ts"],
     languageOptions: {
       parserOptions: {
-        project: ["tsconfig.json"],
+        projectService: true,
       },
     },
     rules: {
@@ -55,22 +55,6 @@ export const flatConfig: ConfigWithExtends[] = [
           allowRegExp: false,
         },
       ],
-    },
-  },
-  {
-    files: ["src/**/*.ts"],
-    languageOptions: {
-      parserOptions: {
-        project: ["src/tsconfig.json"],
-      },
-    },
-  },
-  {
-    files: ["test/**/*.ts"],
-    languageOptions: {
-      parserOptions: {
-        project: ["test/tsconfig.json"],
-      },
     },
   },
 ];

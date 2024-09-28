@@ -1,6 +1,6 @@
 {
   "name": "@linkedmink/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4-0",
   "description": "A base ESLint configuration used by @linkedmink",
   "keywords": [
     "ESLint",
@@ -46,7 +46,6 @@
     "test:ci": "echo \"No unit test for configuration repo\"",
     "preversion": "npm run build && npm run lint",
     "version": "git add .",
-    "postversion": "npm publish",
     "version:prerelease": "npm --no-git-tag-version version prerelease",
     "prepack": "npm run clean && npm run build",
     "prepare": "husky || cd ."
@@ -64,6 +63,6 @@
     "husky": "^9.1.4",
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.3",
-    "typescript": "^5.5.4"
+    "typescript": "~5.5.4"
   }
 }
