@@ -23,15 +23,14 @@
     "url": "https://github.com/sponsors/LinkedMink"
   },
   "type": "module",
-  "main": "./dist/cjs/index.cjs",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs",
-      "types": "./dist/esm/index.d.ts",
-      "default": "./dist/esm/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "repository": {
@@ -39,8 +38,7 @@
     "url": "https://github.com/LinkedMink/eslint-config.git"
   },
   "scripts": {
-    "build": "tsc --project src/tsconfig.json && tsc --project src/tsconfig.cjs.json",
-    "postbuild": "node -e \"fs.writeFile('dist/cjs/package.json', '{ \\\"type\\\": \\\"commonjs\\\" }', () => {})\"",
+    "build": "tsc --project src/tsconfig.json",
     "clean": "node -e \"fs.rm('dist', { force: true, recursive: true }, () => {})\"",
     "lint": "eslint src/**/*.ts *.js",
     "test:ci": "echo \"No unit test for configuration repo\"",
@@ -51,18 +49,16 @@
     "prepare": "husky || cd ."
   },
   "peerDependencies": {
-    "@eslint/js": "^9.9.0",
-    "eslint": "^9.9.0",
-    "typescript-eslint": "^8.0.0"
+    "@eslint/js": ">=9.9.0",
+    "eslint": ">=9.9.0",
+    "typescript-eslint": ">=8.0.0"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.0",
-    "@types/eslint__js": "^8.42.3",
-    "@types/eslint": "^9.6.0",
-    "@types/node": "^22.1.0",
+    "@tsconfig/node24": "^24.0.4",
+    "@types/node": "24.13.1",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
+    "lint-staged": "^17.0.7",
     "prettier": "^3.3.3",
-    "typescript": "~5.5.4"
+    "typescript": "^6.0.3"
   }
 }

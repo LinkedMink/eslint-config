@@ -1,6 +1,8 @@
 import type { Linter } from "eslint";
+import { defineConfig, Config } from "eslint/config";
+import type { ConfigWithExtendsArray } from "@eslint/config-helpers";
 import eslint from "@eslint/js";
-import tsEslint, { ConfigWithExtends, Config } from "typescript-eslint";
+import tsEslint from "typescript-eslint";
 
 const noUnusedVarsOptions: Linter.RuleEntry = [
   "error",
@@ -12,7 +14,7 @@ const noUnusedVarsOptions: Linter.RuleEntry = [
   },
 ];
 
-export const flatConfig: ConfigWithExtends[] = [
+export const flatConfig: ConfigWithExtendsArray = [
   {
     ignores: ["coverage/**", "dist/**"],
   },
@@ -22,7 +24,7 @@ export const flatConfig: ConfigWithExtends[] = [
     files: ["**/*.js", "**/*.cjs", "**/*.mjs"],
     extends: [tsEslint.configs.disableTypeChecked],
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: "latest",
     },
     rules: {
       "no-unused-vars": noUnusedVarsOptions,
@@ -59,4 +61,4 @@ export const flatConfig: ConfigWithExtends[] = [
   },
 ];
 
-export const eslintConfig: Config = tsEslint.config(...flatConfig);
+export const eslintConfig: Config[] = defineConfig(...flatConfig);
